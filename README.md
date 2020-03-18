@@ -35,6 +35,7 @@ Heroku prefix: https://supportticketmanager.herokuapp.com
     * Header:
         * Content-Type: application/json
     * Request body example:
+        ```yaml
         {
             "username": "Lyly",
             "first_name": "",
@@ -44,6 +45,7 @@ Heroku prefix: https://supportticketmanager.herokuapp.com
             "password": "12345aaa"
         }
     * Response example:
+        ```yaml
         {
             "username": "Lyly",
             "first_name": "",
@@ -59,11 +61,13 @@ Heroku prefix: https://supportticketmanager.herokuapp.com
     * Header:
         * Content-Type: application/json
     * Request body example:
+        ```yaml
         {
             "username": "DavidClaw",
             "password": "12345aaa"
         }
     * Response example:
+        ```yaml
         {
             "token": "9ea93042ba8997529b1433804c3ae0ec0fc8ed5e"
         }
@@ -74,11 +78,13 @@ Heroku prefix: https://supportticketmanager.herokuapp.com
         * Content-Type: application/json
         * Authorization: Token <token>
     * Request body example:
+        ```yaml
         {
             "subject": "DavidClaw ticket",
             "message": "message content"
         }
     * Response example:
+        ```yaml
         {
             "id": 38,
             "subject": "DavidClaw ticket"
@@ -89,6 +95,7 @@ Heroku prefix: https://supportticketmanager.herokuapp.com
     * Header:
         * Authorization: Token <token>
     * Response example:
+        ```yaml
         {
             "count": 1,
             "next": null,
@@ -110,10 +117,12 @@ Heroku prefix: https://supportticketmanager.herokuapp.com
         * Content-Type: application/json
         * Authorization: Token <token>
     * Request body example:
+        ```yaml
         {
             "message": "message content"
         }
     * Response example:
+        ```yaml
         {
             "id": 83,
             "status": "Success"
