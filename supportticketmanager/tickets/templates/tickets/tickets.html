@@ -1,0 +1,51 @@
+{% extends 'tickets/base.html' %}
+{% load humanize %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Tickets</li>
+{% endblock %}
+
+{% block content %}
+    {% if not user.is_customer_service %}
+        <div class="mb-4">
+            <a href="{% url 'view_new_ticket' %}" class="btn btn-primary">New ticket</a>
+        </div>
+    {% endif %}
+    <table class="table table-striped mb-4">
+        <thead class="thead-dark">
+            <tr>
+                <th>Ticket</th>
+                <th>Starter</th>
+                <th>Replies</th>
+                <th>Views</th>
+                <th>Last Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ticket in tickets %}
+                {% url 'ticket_posts' ticket.pk as ticket_url %}
+                <tr>
+                    <td>
+                        <p class="mb-0">
+                            <a href="{{ ticket_url }}">{{ ticket.subject }}</a>
+                        </p>
+                        <small class="text-muted">
+                            Pages:
+                            {% for i in ticket.get_page_range %}
+                            <a href="{{ ticket_url }}?page={{ i }}">{{ i }}</a>
+                            {% endfor %}
+                            {% if ticket.has_many_pages %}
+                            ... <a href="{{ ticket_url }}?page={{ ticket.get_page_count }}">Last Page</a>
+                            {% endif %}
+                        </small>
+                    </td>
+                    <td>{{ ticket.owner.username }}</td>
+                    <td>{{ ticket.get_replies_count }}</td>
+                    <td>{{ ticket.views }}</td>
+                    <td>{{ ticket.last_updated|naturaltime }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% include 'tickets/includes/pagination.html' %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'tickets/base.html' %}
+
+{% block title %}Start a New Ticket{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'tickets' %}">Tickets</a></li>
+    <li class="breadcrumb-item active">New ticket</li>
+{% endblock %}
+
+{% block content %}
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {% include 'tickets/includes/form.html' %}
+        <button type="submit" class="btn btn-success">Post</button>
+    </form>
+{% endblock %}
