@@ -12,7 +12,7 @@ docker-compose up --build -d
 ```
 
 ## Features
-**Involved parties:** 
+**Involved parties:**
 This app is designed for two types of portal users:
 - Customer user: They can self-regiser/sign up for an account via our page.
 - Customer service user: Admin can create this kind of account via designed API. UI for this function is out of scope.
@@ -26,13 +26,13 @@ This app leverages three objects: Ticket & Post and User. There is a many-to-one
 Notes:
 * Server validates credentials information first, then request body before processes the request.
 * Basic UI is supported by Django Rest Framework. We can just login and send api requests
-    
+
 Heroku prefix: https://supportticketmanager.herokuapp.com
-Port: 127.0.0.1:8080
+
 * Sign up:
     * Endpoint: api/signup/
     * Method: post
-    * Header: 
+    * Header:
         * Content-Type: application/json
     * Request body example:
         {
@@ -56,7 +56,7 @@ Port: 127.0.0.1:8080
 * Authentication:
     * Endpoint: api/token/
     * Method: post
-    * Header: 
+    * Header:
         * Content-Type: application/json
     * Request body example:
         {
@@ -70,7 +70,7 @@ Port: 127.0.0.1:8080
 * Create ticket:
     * Endpoint: api/newticket/
     * Method: post
-    * Header: 
+    * Header:
         * Content-Type: application/json
         * Authorization: Token <token>
     * Request body example:
@@ -124,7 +124,7 @@ Port: 127.0.0.1:8080
     * Header:
         * Content-Type: application/json
         * Authorization: Token <token>
-    
+
 **Frontend**
 Support the following basic functions:
 * Signup / Login
