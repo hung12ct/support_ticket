@@ -21,5 +21,5 @@ RUN pip install -r requirements.txt
 # copy project
 COPY . /opt/supportticketmanager/
 
-RUN chmod +x /opt/supportticketmanager/start
-ENTRYPOINT [ "/opt/supportticketmanager/start" ]
+RUN chmod +x /opt/supportticketmanager/start.sh
+ENTRYPOINT [ "/opt/supportticketmanager/start.sh" ]
